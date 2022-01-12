@@ -1,0 +1,83 @@
+:host {
+  video {
+    object-fit: cover;
+  }
+
+  .info2 {
+    margin-top: 15px;
+    display: flex;
+
+    span {
+      width: 33%;
+      text-align: center;
+      p:first-child {
+        margin-bottom: 1px;
+        font-size: large;
+      }
+      p:last-child {
+        margin-top: 0px;
+      }
+    }
+    .middle {
+      border-left: solid;
+      border-right: solid;
+      border-width: thin;
+    }
+  }
+
+  .clickdiv {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    right: 25px;
+    top: 295px;
+    display: flex;
+    ion-icon {
+      font-size: 25px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p {
+      font-size: 14px;
+      margin: 4px 0px 0px 4px;
+    }
+  }
+
+  .description {
+    margin: 15px;
+  }
+
+  .images {
+    margin-top: 15px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    ion-slides {
+      height: 220px;
+
+      --bullet-background: black;
+    }
+
+    img {
+      width: 95%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 7%;
+    }
+  }
+  h3 {
+    text-align: center;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    app-card {
+      margin: auto;
+    }
+  }
+}

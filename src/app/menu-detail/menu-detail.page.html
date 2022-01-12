@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{menu?.title|titlecase}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+  <span *ngIf="loading==false" >
+ <img [src]="menu?.image">
+  <div class="info">
+    <p>
+      {{menu?.description}}
+    </p>
+    <h3> Recipes of The Menu</h3>
+    <div class="cards">
+      <app-card *ngFor="let item of menu?.recipes" [data]="item" [routerLink]="[ '/recipe-detail/', item._id ]">
+      </app-card>
+    </div>
+    <div *ngIf="menus!=''">
+      <h3>Similar Menus</h3>
+      <div class="cards">
+        <app-card *ngFor="let item of menus" [data]="item" [routerLink]="[ '/menu-detail/', item._id ]">
+
+        </app-card>
+      </div>
+
+    </div>
+  </div>
+
+  </span>
+ 
+
+
+</ion-content>

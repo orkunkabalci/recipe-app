@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-menu-button slot="start">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title> Categories </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [debounce]="800" (ionChange)="searchRecipe($event.target['value'])" [(ngModel)]="searchTerm">
+  </ion-searchbar>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+  <span *ngIf="loading==false">
+
+    <div class="searched" *ngIf="searchTerm">
+    <ion-list>
+      <ion-item lines="none" *ngFor="let searched of searched"  [routerLink]="[ '/recipe-detail/', searched._id ]" >
+        <ion-label>
+          <h3>{{searched.title|titlecase}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="headcat" *ngFor="let headcat of headCategories">
+    <ion-item lines="none" class="headitem">
+      {{this.headcat.title|titlecase}}
+    </ion-item>
+    <span *ngFor="let seccat of secCategories">
+      <div class="seccat" *ngIf="seccat.sub_category?.title===headcat.title">
+        <ion-item class="secitem"  [routerLink]="[ '/recipes/', seccat._id ]">
+            {{seccat.title|titlecase}}
+        </ion-item>
+      </div>
+    </span>
+  </div>
+  </span>
+  
+</ion-content>

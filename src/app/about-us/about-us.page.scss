@@ -1,0 +1,41 @@
+:host {
+  div {
+    margin-right: 20px;
+    margin-left: 20px;
+    img {
+      width: auto;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    p{
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    h2{
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    span {
+      display: flex;
+      a {
+        color: black;
+        ion-icon {
+          font-size: 50px;
+        }
+        .facelogo{
+            margin-left: 40px;
+        }
+        .instalogo {
+          margin-left: 50px;
+          margin-right: 50px;
+        }
+      }
+    }
+  }
+}

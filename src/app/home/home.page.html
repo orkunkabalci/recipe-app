@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+
+    <ion-title> Home </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+<span *ngIf="loading==false">
+
+
+  <div class="recipe2">
+    <ion-slides [options]="slideOpts2">
+      <ion-slide *ngFor="let recipe of showcases">
+        <ion-card [routerLink]="[ '/recipe-detail/', recipe._id ]">
+          <img [src]="recipe?.head_image" />
+          <h1>Trend</h1>
+          <ion-card-header>
+            <ion-card-title> {{recipe?.title|titlecase}} </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <span>
+              <p> Servings<br> for {{recipe.servings}} people</p>
+            </span>
+            <span>
+              <p> Prep {{recipe?.prep_time}} min </p>
+              <p> Cook {{recipe?.prep_time}} min </p>
+            </span>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <h3> Newest Blog Posts </h3>
+
+  <div class="blog" *ngFor="let blog of blog" [routerLink]="[ '/blog-detail/', blog._id ]">
+    <img [src]="blog?.image">
+
+    <span>
+
+      <h2>{{blog?.title|titlecase}}</h2>
+      <p class="desc">{{blog?.description}}</p>
+      <p class="more"> ... </p>
+    </span>
+
+  </div>
+</span>
+
+</ion-content>

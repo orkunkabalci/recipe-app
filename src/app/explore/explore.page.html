@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-menu-button slot="start">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title> Explore </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment value="week" (ionChange)="segmentChanged($event.target['value'])">
+    <ion-segment-button (click)="getLastWeeksRecipe()" value="week">
+      <ion-label>
+        <p> Last Week</p>
+      </ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)="getLastMonthRecipe()" value="month">
+      <ion-label  >
+        <p> Last Month</p>
+      </ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)="getAllRecipes()" value="all">
+      <ion-label >
+        <p>All Time </p>
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+
+  <div class="recipe" *ngIf="activeSegment=='week'&& loading==false">
+    <app-card *ngFor="let item of recipes" [data]=item   [routerLink]="[ '/recipe-detail/', item._id ]">
+
+    </app-card>
+      
+  </div>
+  
+  <div class="recipe" *ngIf="activeSegment=='month' && loading==false ">
+    <app-card *ngFor="let item of recipes" [data]=item  [routerLink]="[ '/recipe-detail/', item._id ]">
+
+    </app-card>
+      
+  </div>
+  
+  <div class="recipe" *ngIf="activeSegment=='all' && loading==false">
+    <app-card *ngFor="let item of recipes" [data]=item  [routerLink]="[ '/recipe-detail/', item._id ]">
+
+    </app-card>
+      
+  </div>
+
+
+
+</ion-content>

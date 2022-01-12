@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="blog"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{blog?.title|titlecase}} </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+  <span *ngIf="loading==false" >
+   <img [src]="blog?.image">
+
+  <div class="info">
+    <p class="desc">
+      {{blog?.description}}
+    </p>
+    <p class="date"> {{blog?.date|date}}  </p>
+    </div> 
+  </span>
+  
+</ion-content>

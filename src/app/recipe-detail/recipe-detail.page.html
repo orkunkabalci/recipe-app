@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="recipes"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{recipe?.title|titlecase}} </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+  <span *ngIf="loading==false">
+
+  
+  <video [src]="recipe?.video" width="100%" height="200" [poster]="recipe?.head_image" controls></video>
+
+
+  <div class="info2">
+    <span>
+      <p> Servings </p>
+      <p> {{recipe?.servings}} people </p>
+
+    </span>
+    <span class="middle">
+      <p> Prep</p>
+      <p> {{recipe?.prep_time}} min </p>
+
+    </span>
+    <span>
+      <p> Cook</p>
+      <p> {{recipe?.cook_time}} min </p>
+
+    </span>
+  </div>
+  <div class="images">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let item of recipe?.images">
+        <img [src]="item">
+      </ion-slide>
+    </ion-slides>
+
+    <div class="clickdiv">
+          <ion-icon name="eye-outline"></ion-icon>
+        <p> {{recipe?.click_counter}} </p>
+    </div>
+  </div>
+  <div class="description">
+    <p [innerHtml]="recipe?.description"></p>
+  </div>
+
+  <div *ngIf="recipes!=''">
+    <h3>Similar Recipes</h3>
+    <div class="cards">
+      <app-card *ngFor="let item of recipes" [data]="item" [routerLink]="[ '/recipe-detail/', item._id ]">
+      </app-card>
+    </div>
+  </div>
+</span>
+</ion-content>

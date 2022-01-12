@@ -1,0 +1,64 @@
+:host {
+  .recipe2 {
+    img {
+      width: 100%;
+    }
+    h1 {
+      padding: 5px;
+      right: 0px;
+      position: absolute;
+      top: -20px;
+      border-radius: 8px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+    }
+    ion-card {
+      width: 90%;
+      ion-card-title {
+        font-size: medium;
+      }
+      ion-card-content {
+        display: flex;
+        p {
+          color: black;
+        }
+        span {
+          width: 50%;
+          margin: auto;
+        }
+      }
+    }
+  }
+  h3 {
+    text-align: center;
+  }
+  .blog {
+    img {
+      display: block;
+      width: 95%;
+      margin: auto;
+
+      height: 200px;
+      object-fit: cover;
+    }
+
+    span {
+      h2 {
+        margin-left: 15px;
+      }
+      p {
+        margin-right: 15px;
+        margin-left: 15px;
+      }
+      .desc {
+        overflow: hidden;
+        height: 50px;
+        margin-bottom: 2px;
+      }
+      .more {
+        margin-top: 0px;
+      }
+    }
+  }
+}

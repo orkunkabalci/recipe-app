@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{title|titlecase}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-spinner
+  *ngIf="loading"
+  class="spinner-center-page"
+  name="crescent"
+></ion-spinner>
+
+<div *ngIf="loading==false">
+  <app-card *ngFor="let item of recipes" [data]=item [routerLink]="[ '/recipe-detail/', item._id ]" >
+
+  </app-card>  
+</div>
+
+
+
+</ion-content>

@@ -1,0 +1,24 @@
+:host {
+
+  ion-segment{
+    border-radius: 0;
+  }
+
+  ion-segment-button {
+    border-radius: 0;
+
+    height: 40px;
+    p {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .recipe {
+    display: flex;
+    flex-wrap: wrap;
+    app-card {
+      margin: auto;
+    }
+  }
+}

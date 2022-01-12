@@ -1,0 +1,9 @@
+:host {
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    app-card {
+      margin: auto;
+    }
+  }
+}

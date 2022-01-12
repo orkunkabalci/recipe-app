@@ -1,0 +1,18 @@
+:host {
+  .headcat {
+    .headitem {
+      font-weight: bold;
+      font-size: large;
+    }
+    .seccat {
+      .secitem {
+        margin-left: 10px;
+      }
+    }
+  }
+  .searched {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+  }
+}
